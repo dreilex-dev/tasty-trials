@@ -3,6 +3,21 @@ const feedbackMessage = document.getElementById('feedbackMessage');
 const toastMessage = document.getElementById('toast-alert');
 const toastElement = new bootstrap.Toast(document.getElementById('toast-1'));
 const containerResults = document.getElementById('resultsRow'); 
+const searchButton = document.getElementById('searchButton');
+
+searchButton.addEventListener("click", function() {
+    const mealName = mealInput.value.trim();
+    if (mealName) {
+        fetchData(mealName);
+        mealInput.value = "";
+    } else {
+        toastMessage.textContent = "Please enter the meal."
+        toastElement.show();
+        setTimeout(() => {
+            toastElement.hide();
+        }, 3000);
+    }
+})
 
 mealInput.addEventListener("keypress", function(e) {
     toastMessage.textContent = "";
