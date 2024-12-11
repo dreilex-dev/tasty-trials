@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>tastyTrials_withButton</title>
+    <title>tastyTrials_withButton_searchForPhones</title>
     <meta name="" content="">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
@@ -15,8 +15,10 @@
 
 <body>
     <div class="container mt-4">
-        <h1 class="text-center mb-3">Tasty Trials</h1>
-        <div class="input-group" id="input-group-mb-4"><input class="form-control" type="text" id="searchInput" placeholder="Search for meal..."><button class="btn btn-primary" id="searchButton" type="button">Search</button></div>
+        <h1 class="text-center mb-3">Tasty Trials</h1><form id="searchForm" class="input-group mb-4">
+    <input id="searchInput" class="form-control" type="search" placeholder="Search for meal...">
+    <button id="searchButton" class="btn btn-primary" type="submit">Search</button>
+</form>
         <div id="resultsContainer" class="container mt-4">
             <div class="text-center d-none alert alert-danger" id="feedbackMessage"></div>
             <div id="resultsRow" class="row"></div>
