@@ -15,16 +15,23 @@ body {
   animation: slide-in-left 0.5s ease-out;
 }
 
-#resultMessage {
-  /*display: flex;*/
-  position: absolute;
-  left: 50%;
-  /*margin: 10px 0px;*/
-  transform: translateX(-50%);
-  z-index: 1050;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
-  width: 100%;
+@media (min-width: 300px) {
+  #resultMessage {
+    display: flex;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    width: 70% !important;
+    margin: 0 !important;
+  }
+}
+
+@media (min-width: 300px) {
+  #searchForm {
+    margin-bottom: 12px !important;
+  }
 }
 
 #resultMessage.show {
@@ -37,17 +44,28 @@ body {
   box-shadow: none;
 }
 
-#searchForm {
-  width: 80%;
-  margin-bottom: 0 !important;
-  margin: 0px auto;
+@media (min-width: 576px) {
+  #searchForm {
+    width: 80%;
+    margin-bottom: 0 !important;
+    margin: 0px auto;
+  }
 }
 
-#resultMessage {
-  padding: inherit;
-  margin: 10px auto !important;
-  align-items: center;
-  width: 50%;
+@media (max-width: 576px) {
+  #searchForm {
+    width: 60%;
+    margin: 0px auto;
+  }
+}
+
+@media (min-width: 576px) {
+  #resultMessage {
+    padding: inherit;
+    margin: 10px auto !important;
+    align-items: center;
+    width: 50%;
+  }
 }
 
 .styleCardH5 {
