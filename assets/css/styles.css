@@ -2,3 +2,55 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+@keyframes slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+#resultMessage.show {
+  animation: slide-in-left 0.5s ease-out;
+}
+
+#resultMessage {
+  /*display: flex;*/
+  position: absolute;
+  left: 50%;
+  /*margin: 10px 0px;*/
+  transform: translateX(-50%);
+  z-index: 1050;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  width: 100%;
+}
+
+#resultMessage.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+#searchInput:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+#searchForm {
+  width: 80%;
+  margin-bottom: 0 !important;
+  margin: 0px auto;
+}
+
+#resultMessage {
+  padding: inherit;
+  margin: 10px auto !important;
+  align-items: center;
+  width: 50%;
+}
+
+.styleCardH5 {
+  font-family: Merienda, 'Roboto';
+}
+
