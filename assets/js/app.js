@@ -43,7 +43,7 @@ searchButton.addEventListener("click", function () {
 });
 
 // Event listener pentru Enter în câmpul de căutare
-mealInput.addEventListener("keypress", function (e) {
+mealInput.addEventListener("keydown", function (e) {
     resultMessage.classList.add('d-none'); // Ascundem mesajul anterior
 
     if (e.code === "Enter") {
