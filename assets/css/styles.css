@@ -1,5 +1,7 @@
 body {
   font-family: 'Roboto', sans-serif;
+  background-color: #faf3e0;
+  color: #212121;
 }
 
 @keyframes slide-in-left {
@@ -78,7 +80,40 @@ body {
   border: none;
 }
 
-.modal-backdrop {
-  background-color: rgba(0, 0, 0, 0.8);
+.modal-style {
+  background-color: #fdfcf8;
+  border-radius: 8px;
+}
+
+.rounded-image {
+  border-radius: 8px;
+}
+
+.card {
+  background-color: #ffffff;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: all 0.3 ease;
+}
+
+.card:hover {
+  background-color: #ffedcc;
+  transform: scale(1.02);
+}
+
+.modal-content {
+  background-color: #fdfcf8;
+  color: #333333;
+}
+
+#searchButton {
+  background-color: #ff5722;
+  color: #ffffff;
+  border: none;
+  transition: all 0.3 ease;
+}
+
+#searchButton:hover {
+  background-color: #e6419;
 }
 

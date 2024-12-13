@@ -17,15 +17,15 @@
 
 <body style="background: #FCFCFC;"><div id="modalRecipe" class="modal fade" tabindex="-1" aria-hidden="true">
 	<div class="modal-dialog">
-		<div class="modal-content">
+		<div class="modal-content modal-style">
 			
 			<div id="modalHeaderRecipe" class="modal-header">
-				<h5 class="modal-title">Recipe Title</h5>
+				<h5 class="modal-title styleCardH5">Recipe Title</h5>
 				<button id="btnCloseModal" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 			</div>
 
 			<div id="modalImageCover" class="modal-body">
-				<img src="${meal.strMealThumb}" alt="#{meal.strMeal}" class="card-img-top" data-id="${meal.idMeal}">
+				<img src="${meal.strMealThumb}" alt="#{meal.strMeal}" class="card-img-top rounded-image" data-id="${meal.idMeal}">
 			</div>
 
 			<div id="modalListIngrediensRecipe" class="modal-body">

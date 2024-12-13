@@ -8,7 +8,6 @@ const modalRecipe = document.getElementById('recipeModal');
 
 const showResultMessage = (message, type) => {
     resultAlert.textContent = message;
-
     resultMessage.classList.remove('bg-success', 'bg-danger', 'd-none', 'show');
 
     if (type === "success") {
@@ -76,7 +75,7 @@ const displayMeals = (meals) => {
                 <div class="card">
                     <img src="${meal.strMealThumb}" class="card-img-top" alt="${meal.strMeal}" data-id="${meal.idMeal}">
                     <div class="card-body">
-                        <h5 class="card-title">${meal.strMeal}</h5>
+                        <h5 class="card-title styleCardH5">${meal.strMeal}</h5>
                     </div>
                 </div>
             </div>
@@ -100,7 +99,7 @@ const fetchMealDetails = async (id) => {
 };
 
 const populateModal = (meal) => {
-    document.getElementById("modalImageCover").innerHTML = `<img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="img-fluid">`;
+    document.getElementById("modalImageCover").innerHTML = `<img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="img-fluid rounded-image">`;
     document.querySelector("#modalHeaderRecipe .modal-title").textContent = meal.strMeal;
 
     const ingredientsList = document.getElementById("ingredientsList");
