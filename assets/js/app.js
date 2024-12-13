@@ -4,6 +4,7 @@ const containerResults = document.getElementById('resultsRow');
 const searchForm = document.getElementById('searchForm');
 const resultMessage = document.getElementById('resultMessage');
 const resultAlert = document.getElementById('result-alert');
+const modalRecipe = document.getElementById('recipeModal');
 
 const showResultMessage = (message, type) => {
     resultAlert.textContent = message;
@@ -24,7 +25,6 @@ const showResultMessage = (message, type) => {
     }, 3000);
 };
 
-
 searchForm.addEventListener("submit", function (e) {
     e.preventDefault(); 
     const mealName = mealInput.value.trim();
@@ -33,6 +33,13 @@ searchForm.addEventListener("submit", function (e) {
         mealInput.value = "";
     } else {
         showResultMessage("Please enter the meal.", "error");
+    }
+});
+
+document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("card-img-top")) {
+        const mealId = e.target.getAttribute("data-id");
+        fetchMealDetails(mealId);
     }
 });
 
@@ -67,7 +74,7 @@ const displayMeals = (meals) => {
         const card = `
             <div class="col-12 col-md-6 col-lg-4 mb-4">
                 <div class="card">
-                    <img src="${meal.strMealThumb}" class="card-img-top" alt="${meal.strMeal}">
+                    <img src="${meal.strMealThumb}" class="card-img-top" alt="${meal.strMeal}" data-id="${meal.idMeal}">
                     <div class="card-body">
                         <h5 class="card-title">${meal.strMeal}</h5>
                     </div>
@@ -76,4 +83,35 @@ const displayMeals = (meals) => {
         `;
         containerResults.innerHTML += card;
     });
+};
+
+const fetchMealDetails = async (id) => {
+    try {
+        const res = await fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`);    
+        const data = await res.json();
+        if (data.meals) {
+            populateModal(data.meals[0]);
+            const modal = new bootstrap.Modal(document.getElementById("modalRecipe"));
+            modal.show();
+        }
+    } catch (error) {
+        console.error("Error fetching meal details: ", error);
+    }
+};
+
+const populateModal = (meal) => {
+    document.getElementById("modalImageCover").innerHTML = `<img src="${meal.strMealThumb}" alt="${meal.strMeal}" class="img-fluid">`;
+    document.querySelector("#modalHeaderRecipe .modal-title").textContent = meal.strMeal;
+
+    const ingredientsList = document.getElementById("ingredientsList");
+    ingredientsList.innerHTML = "";
+    for (let i = 1; i <= 20; i++) {
+        const ingredient = meal[`strIngredient${i}`];
+        const measure = meal[`strMeasure${i}`];
+        if (ingredient && ingredient.trim() !== "") {
+            ingredientsList.innerHTML += `<li>${measure ? measure : ""} ${ingredient}</li>`;
+        }
+    }
+
+    document.getElementById("cookingInstructions").textContent = meal.strInstructions ? meal.strInstructions : "No instructions available.";
 };

@@ -72,3 +72,13 @@ body {
   font-family: Merienda, 'Roboto';
 }
 
+.btn-close {
+  color: #fff;
+  background-color: transparent;
+  border: none;
+}
+
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+

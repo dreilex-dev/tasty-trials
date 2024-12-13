@@ -9,13 +9,37 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>tastyTrials_withButton_searchForPhones6</title>
+    <title>tastyTrials_withButton_searchForPhones7</title>
     <meta name="" content="">
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
-<body style="background: #FCFCFC;">
+<body style="background: #FCFCFC;"><div id="modalRecipe" class="modal fade" tabindex="-1" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			
+			<div id="modalHeaderRecipe" class="modal-header">
+				<h5 class="modal-title">Recipe Title</h5>
+				<button id="btnCloseModal" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+
+			<div id="modalImageCover" class="modal-body">
+				<img src="${meal.strMealThumb}" alt="#{meal.strMeal}" class="card-img-top" data-id="${meal.idMeal}">
+			</div>
+
+			<div id="modalListIngrediensRecipe" class="modal-body">
+				<h6>Ingredients: </h6>
+				<ul id="ingredientsList"></ul>
+			</div>
+
+			<div id="modalCookingRecipe" class="modal-body">
+				<h6>Instructions:</h6>
+				<p id="cookingInstructions"></p>
+			</div>
+		</div>
+	</div>
+</div>
     <div class="container mt-5" style="position: relative;">
         <h1 class="text-center mb-5" style="font-family: Merienda, sans-serif;">Tasty Trials</h1><form id="searchForm" class="input-group mb-4">
     <input id="searchInput" class="form-control" type="search" placeholder="Search for meal...">
