@@ -67,6 +67,7 @@ const fetchData = async (mealName) => {
 };
 
 const displayMeals = (meals) => {
+
     containerResults.innerHTML = ""; 
 
     meals.forEach((meal) => {
@@ -107,6 +108,7 @@ const populateModal = (meal) => {
     for (let i = 1; i <= 20; i++) {
         const ingredient = meal[`strIngredient${i}`];
         const measure = meal[`strMeasure${i}`];
+        console.log(`Ingredient ${i}:`, ingredient, `Measure:`, measure);
         if (ingredient && ingredient.trim() !== "") {
             ingredientsList.innerHTML += `<li>${measure ? measure : ""} ${ingredient}</li>`;
         }
